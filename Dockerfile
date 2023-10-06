@@ -7,9 +7,10 @@ RUN apt-get update \
     && which cron \
     && rm -rf /etc/cron.*/*
 
-COPY crontab /etc/cron.d/sfitfu-cron
+COPY crontab /sfitftu-cron
 COPY entrypoint.sh /entrypoint.sh
 
+RUN crontab sfitftu-cron
 RUN chmod +x entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
